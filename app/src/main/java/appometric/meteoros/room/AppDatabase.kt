@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import appometric.meteoros.model.Forecast
 import appometric.meteoros.room.dao.ForecastDao
 
-@Database(entities = [Forecast::class], version = 2, exportSchema = false)
+@Database(entities = [Forecast::class], version = 4, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun forecastDao(): ForecastDao

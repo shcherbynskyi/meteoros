@@ -10,29 +10,36 @@
     android:layout_margin="0.5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="@dimen/spacing_normal_16"
+        android:src="@drawable/ic_raining"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
     <TextView
         android:id="@+id/tv_city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:textSize="@dimen/font_small_18"
-        android:layout_margin="@dimen/spacing_normal_16"
+        android:textSize="@dimen/font_tiny_16"
+        android:layout_margin="@dimen/spacing_small_8"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/iv_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:text="City"/>
 
-    <TextView
-        android:id="@+id/tv_country"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:textSize="@dimen/font_tiny_12"
+    <ImageView
+        android:id="@+id/iv_country"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_margin="@dimen/spacing_small_8"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@id/tv_city"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:text="Country"/>
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <TextView
         android:id="@+id/tv_temperature"
@@ -44,7 +51,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-
         tools:text="18"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

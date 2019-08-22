@@ -1,40 +1,47 @@
 package appometric.meteoros.model
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import com.squareup.moshi.Json
+import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
-@Entity(tableName = "forecasts")
 data class Forecast(
-    @ColumnInfo(name = "city")
-    private var city: String,
-
-    @ColumnInfo(name = "country")
-    private var country: String,
-
-    @ColumnInfo(name = "longitude")
-    private var longitude: Double,
-
-    @ColumnInfo(name = "latitude")
-    private var latitude: Double,
-
-    @ColumnInfo(name = "temperature")
-    private var temperature: Int
-) {
-
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
-    var id: Long = 0
-
-    fun getCity() = city
-
-    fun getCountry() = country
-
-    fun getLongitude() = longitude
-
-    fun getLatitude() = latitude
-
-    fun getTemperature() = temperature
-
+    @SerializedName("coord")
+    private var coord: Coord? = null,
+    @SerializedName("weather")
+    private var weather: List<Weather>? = null,
+    @SerializedName("base")
+    private var base: String? = null,
+    @SerializedName("main")
+    private var main: Main? = null,
+    @SerializedName("visibility")
+    private var visibility: Int = 0,
+    @SerializedName("wind")
+    private var wind: Wind? = null,
+    @SerializedName("clouds")
+    private var clouds: Clouds? = null,
+    @SerializedName("dt")
+    private var dt: Int = 0,
+    @SerializedName("sys")
+    private var sys: Sys? = null,
+    @SerializedName("timezone")
+    private var timezone: Int = 0,
+    @SerializedName("id")
+    private var cityId: Int = 0,
+    @SerializedName("name")
+    private var name: String? = null,
+    @SerializedName("cod")
+    private var cod: Int = 0
+): Serializable {
+    fun getCoord() = coord
+    fun getWeather() = weather
+    fun getBase() = base
+    fun getMain() = main
+    fun getVisibility() = visibility
+    fun getWind() = wind
+    fun getClouds() = clouds
+    fun getDt() = dt
+    fun getSys() = sys
+    fun getTimezone() = timezone
+    fun getCityId() = cityId
+    fun getName() = name
+    fun getCod() = cod
 }

@@ -17,12 +17,13 @@ class HomeViewModel : ViewModel() {
         App.getAppComponent().inject(this)
 
         // Get data from repository
-        forecastData.value = roomRepository.getForecastData()
+        forecastData.postValue(roomRepository.getForecastData())
     }
 
     fun getForecastData() = forecastData
 
     fun saveForecastData(forecast: Forecast) {
+
         // Save data to local repository
         roomRepository.saveForecastData(forecast)
 
@@ -32,7 +33,7 @@ class HomeViewModel : ViewModel() {
         tempData.addAll(listOf(forecast))
 
         // Save live data within ViewModel
-        forecastData.value = tempData
+        forecastData.postValue(tempData)
     }
 
     fun deleteForecastData(pos: Int) {

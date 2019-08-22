@@ -1,6 +1,7 @@
 package appometric.meteoros.network
 
 import appometric.meteoros.App
+import appometric.meteoros.model.Forecast
 import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.http.GET
@@ -14,6 +15,6 @@ interface WeatherMapAPI {
         @Query("lat") lat: Double,
         @Query("units") unit: String = "metric",
         @Query("appid") appid: String = App.OPEN_WEATHER_MAP_API_KEY
-    ): Call<JsonObject>
+    ): Call<Forecast> // Call<JsonObject>
 
 }

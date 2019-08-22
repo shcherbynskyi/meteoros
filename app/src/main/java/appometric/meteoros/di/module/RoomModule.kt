@@ -10,8 +10,6 @@ class RoomModule {
 
     @Provides
     @Singleton
-    fun provideRoomRepository(): RoomRepository {
-        return RoomRepository()
-    }
+    fun provideRoomRepository() = RoomRepository()
 
 }
