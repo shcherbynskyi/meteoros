@@ -11,13 +11,15 @@ import appometric.meteoros.model.Forecast
 import com.squareup.picasso.Picasso
 
 class ForecastAdapter(
-        val context: Context,
-        val items: List<Forecast>
+    val context: Context,
+    val items: List<Forecast>
 ) : RecyclerView.Adapter<ForecastViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            ForecastViewHolder(LayoutInflater.from(context)
-                    .inflate(R.layout.item_weather, parent, false))
+        ForecastViewHolder(
+            LayoutInflater.from(context)
+                .inflate(R.layout.item_weather, parent, false)
+        )
 
     override fun getItemCount() = items.size
 

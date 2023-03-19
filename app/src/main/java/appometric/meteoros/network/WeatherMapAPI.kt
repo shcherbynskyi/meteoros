@@ -15,6 +15,6 @@ interface WeatherMapAPI {
         @Query("lat") lat: Double,
         @Query("units") unit: String = "metric",
         @Query("appid") appid: String = App.OPEN_WEATHER_MAP_API_KEY
-    ): Call<Forecast> // Call<JsonObject>
+    ): Call<Forecast>
 
 }

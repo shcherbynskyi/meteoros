@@ -10,8 +10,7 @@ import javax.inject.Singleton
 @Module
 class RetrofitModule {
 
-    val OPEN_WEATHER_MAP_API_BASE_URL = "https://api.openweathermap.org/"
-
+    private val OPEN_WEATHER_MAP_API_BASE_URL = "https://api.openweathermap.org/"
 
     @Provides
     @Singleton

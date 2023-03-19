@@ -5,10 +5,7 @@ import java.io.Serializable
 
 data class Coord(
     @SerializedName("lon")
-    private var lon: Float,
+    val lon: Float,
     @SerializedName("lat")
-    private var lat: Float
-): Serializable {
-    fun getLon() = lon
-    fun getLat() = lat
-}
+    val lat: Float
+): Serializable
