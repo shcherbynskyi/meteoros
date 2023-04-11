@@ -4,7 +4,7 @@ import android.widget.ImageView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.databinding.BindingAdapter
 import appometric.meteoros.R
-import appometric.meteoros.feature.weather.data.model.Weather
+import appometric.meteoros.feature.weather.data.models.Weather
 import com.squareup.picasso.Picasso
 
 @BindingAdapter("app:loadFlagByCountryCode")

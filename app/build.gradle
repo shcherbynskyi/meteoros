@@ -1,15 +1,17 @@
 plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
+    id "com.android.application"
+    id "kotlin-android"
+    id "kotlin-kapt"
+    id "kotlin-parcelize"
+    id "dagger.hilt.android.plugin"
+    id "androidx.navigation.safeargs"
 }
 
 android {
     compileSdkVersion 33
     defaultConfig {
         applicationId "appometric.meteoros"
-        minSdkVersion 23
+        minSdkVersion 26
         targetSdkVersion 33
         versionCode 1
         versionName "1.0"

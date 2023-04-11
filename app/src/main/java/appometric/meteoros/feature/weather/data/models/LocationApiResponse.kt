@@ -1,8 +1,8 @@
-package appometric.meteoros.feature.weather.data.model
+package appometric.meteoros.feature.weather.data.models
 
 import com.google.gson.annotations.SerializedName
 
-data class LocationDto(
+data class LocationApiResponse(
     @SerializedName("name")
     val name: String,
     @SerializedName("lat")

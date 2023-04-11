@@ -6,13 +6,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import appometric.meteoros.R
 import appometric.meteoros.databinding.ItemForecastBinding
-import appometric.meteoros.feature.weather.data.model.ForecastDto
+import appometric.meteoros.feature.weather.data.models.ForecastApiResponse
+import appometric.meteoros.feature.weather.domain.entities.CityForecastDto
 
 class ForecastAdapter(
-    val onItemClick: () -> Unit
+    val onItemClick: (forecast: CityForecastDto) -> Unit
 ) : RecyclerView.Adapter<ForecastAdapter.ForecastViewHolder>() {
 
-    private var items: MutableList<ForecastDto> = mutableListOf()
+    private var items: MutableList<CityForecastDto> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ForecastViewHolder =
         ForecastViewHolder(
@@ -29,11 +30,11 @@ class ForecastAdapter(
     override fun onBindViewHolder(holder: ForecastViewHolder, position: Int) =
         holder.bind(items[position])
 
-    fun update(list: List<ForecastDto>) {
+    fun update(list: List<CityForecastDto>) {
         items = list.toMutableList()
     }
 
-    fun add(forecast: ForecastDto) {
+    fun add(forecast: CityForecastDto) {
         items.add(forecast)
         notifyDataSetChanged()
     }
@@ -41,9 +42,9 @@ class ForecastAdapter(
     inner class ForecastViewHolder(var binding: ItemForecastBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(forecast: ForecastDto) {
+        fun bind(forecast: CityForecastDto) {
             binding.forecast = forecast
-            binding.root.setOnClickListener { onItemClick() }
+            binding.root.setOnClickListener { onItemClick(forecast) }
         }
     }
 }

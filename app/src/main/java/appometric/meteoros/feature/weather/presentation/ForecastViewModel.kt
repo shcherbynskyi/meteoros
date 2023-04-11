@@ -4,22 +4,21 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import appometric.meteoros.feature.weather.data.model.ForecastDto
+import appometric.meteoros.feature.weather.data.models.ForecastApiResponse
 import appometric.meteoros.feature.weather.data.source.ForecastRepository
+import appometric.meteoros.feature.weather.domain.entities.CityForecastDto
+import appometric.meteoros.feature.weather.domain.usecases.SubscribeToCityUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ForecastViewModel @Inject constructor(
-    private val forecastRepository: ForecastRepository
+    private val subscribeToCityUseCase: SubscribeToCityUseCase,
 ) : ViewModel() {
 
-    private val _forecastList: MutableLiveData<List<ForecastDto>> = MutableLiveData()
-    val forecastList: LiveData<List<ForecastDto>> = _forecastList
-
-    private val _forecast: MutableLiveData<ForecastDto> = MutableLiveData()
-    val forecast: LiveData<ForecastDto> = _forecast
+    private val _forecast: MutableLiveData<CityForecastDto> = MutableLiveData()
+    val forecast: LiveData<CityForecastDto> = _forecast
 
     fun updateSavedForecasts() {
         // TODO implement
@@ -29,20 +28,8 @@ class ForecastViewModel @Inject constructor(
         if (cityName.isEmpty() || cityName.isBlank()) return
 
         viewModelScope.launch {
-            val geocodingList = forecastRepository.fetchGeocodingByCityName(
-                cityName = cityName
-            )
-
-            if (geocodingList.isEmpty().not()) {
-
-                val geocoding = geocodingList[0]
-
-                val forecast = forecastRepository.fetchForecastByCoordinates(
-                    longitude = geocoding.longitude,
-                    latitude = geocoding.latitude
-                )
-                _forecast.postValue(forecast)
-            }
+            val cityForecastDto = subscribeToCityUseCase(cityName)
+            _forecast.postValue(cityForecastDto)
         }
     }
 }

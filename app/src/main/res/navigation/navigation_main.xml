@@ -19,6 +19,10 @@
         android:id="@+id/forecastDetailFragment"
         android:name="appometric.meteoros.feature.weather.presentation.ForecastDetailFragment"
         android:label="ForecastDetailFragment"
-        tools:layout="@layout/fragment_forecast_detail" />
+        tools:layout="@layout/fragment_forecast_detail">
+        <argument
+            android:name="forecast"
+            app:argType="appometric.meteoros.feature.weather.domain.entities.CityForecastDto" />
+    </fragment>
 
 </navigation>

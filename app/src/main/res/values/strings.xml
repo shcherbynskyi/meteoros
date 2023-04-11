@@ -4,10 +4,17 @@
     <!-- WEATHER -->
 
     <string name="dialog_add_forecast_title_text">Add forecast for the city</string>
+    <string name="dialog_add_forecast_hint_text">The name of the city…</string>
     <string name="dialog_add_forecast_positive_button_text">Add</string>
     <string name="dialog_add_forecast_negative_button_text">Cancel</string>
+    
+    <string name="forecast_detail_location_description_text">%1s, %2s</string>
+    <string name="forecast_detail_feels_like_description_text">%1d° / %2d° Feels like %3d°</string>
+    <string name="forecast_detail_sunrise_text">Sunrise</string>
+    <string name="forecast_detail_sunset_text">Sunset</string>
 
-    <string name="temperature_in_celsius">%d °C</string>
-    <string name="temperature_in_fahrenheit">%d °F</string>
+    <string name="temperature_without_unit">%d°</string>
+    <string name="temperature_in_celsius">%d°C</string>
+    <string name="temperature_in_fahrenheit">%d°F</string>
 
 </resources>
